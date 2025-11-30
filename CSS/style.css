@@ -1,75 +1,81 @@
 body{
-    background-color: rgb(224, 222, 172);
+    background-color: rgb(231, 231, 213);
     margin: 0;
     line-height: 1;
 }
 /* Header and image styles */
-h1{
-    display: flex;
-    background-color: rgb(218, 172, 104);
-    justify-content: center;
 
-    
-}
 
-h1.image{
+  header { 
     display: flex;
-    width: 50 px;
-    justify-items:flex-end ;
-}
-h2 {
-    background-color: rgb(161, 200, 221);
     text-align: center;
-  
+    background-color: rgb(210, 212, 185);
+    align-items: center;
+    padding: 10px;
     justify-content: center;
-
-}
-
- /* Navigation Base styles */
-nav ul {
-    list-style: none;
-    position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;  
-}
-
-nav ul li {
-    position: relative;
-}
-
-nav ul ul {
-    display:contents;
-    padding:1px;
-    position:left; 
-    top: 100%;
-}
-
-
-nav{
-    background-color: rgb(226, 198, 198);
+  
     
 }
+header.image{
+  max-width: 500px;           /* control image size */
+  height: auto;               /* keep proportions */
+  object-fit: cover; 
+  flex-direction: row-reverse;         /* ensures neat scaling */
+}
+
+header h1,
+header h2 {
+  margin: 0;                  /* remove default spacing */
+  text-align: center;         /* center text inside block */
+}
+
+header h1 {
+  font-size: 2rem;
+}
+
+header h2 {
+  font-size: 1.2rem;
+  font-weight: normal;
+  color: #312424;                /* subtle secondary styling */
+}
+ 
 
 
-    ul{
-        text-align: center;
-        display: flex;
-        list-style: none;
-        justify-content: space-around;
-    }
+   /* Navigation bar */
+nav {
+  background-color: #9aafa9;      /* dark background */
+  padding: 10px 20px;
+  overflow: hidden;
+  
+}
 
-    li{
-      display: inline-block;
-      width: 160px ;
-      line-height: 2em;
-      font-family:Verdana, Geneva, Tahoma, sans-serif;
-      font-variant: small-caps;
-      font-size: large;
-      padding: 2px;
-    }
+/* Navigation list */
+nav ul {
+  list-style: none;            /* remove bullets */
+  margin: 0;
+  padding: 5px;
+  display: flex;               /* horizontal layout */
+  gap: 20px;                   /* spacing between items */
+}
 
+/* Navigation links */
+nav a {
+  text-decoration: none;       /* remove underline */
+  color: #4c4545;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;   
+  font-size: large;              
+  padding: 4px 10px;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Hover effect */
+nav a:hover {
+  background-color: #d3d484;
+  color: #493b22;              /* gold hover color */
+  border-radius: 6px;
+}
+
+    
 
   /* Slideshow container */
 
@@ -114,6 +120,16 @@ section.first {
   text-align: center;
   border-radius: 12px;
   margin-bottom: 2rem;
+  
+}
+.icon img {
+ transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out ;
+}
+
+.icon img:hover {
+  transform: scale(1.2)
+  rotate(2deg);
+  opacity: 0.8;
 }
 
 section.first {
@@ -130,17 +146,35 @@ section.first p {
 
 /* Creative Corner */
 section.second {
-  background: #a0c2d0;          /* light aqua for contrast */
+  background:#aecdd6;     /* light aqua for contrast */
   padding: 2rem;
   border-radius: 8px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1.2s ease-in forwards;
+  
+  
+  
 }
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 section.second h4 {
   font-size: 2rem;
   color: #6fb4a8;
   margin-bottom: 1rem;
+  
 }
-
+  
 section.second p {
   font-size: 1.1rem;
   line-height: 1.6;
@@ -159,19 +193,19 @@ section {
 /* Responsive design */
 @media (max-width=600px){/* Base styles (mobile-first approach) */
  body {
-      background-color: #dacbaf;
+      background-color: #cfa961;
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
     }
   
-    h1, h2 {
+   header h1, h2 {
       text-align: center;
       font-size: 1.5rem;
       padding: 5px;
     }
   
-    nav ul {
+   nav ul {
     background-color: #d89c63;
       flex-direction: column;
       align-items: right;
@@ -194,19 +228,19 @@ section {
          padding: 0;
        }
      
-       h1, h2 {
+       header h1, h2 {
          text-align: center;
          padding: 10px;
        }
      
-       nav ul {
+        nav ul {
        background-color: #a4b6d6e8;
          flex-direction:row;
          align-items: center;
          padding: 0;
        }
      
-       nav ul li {
+        nav ul li {
          margin: 10px 0;
        }
       }
@@ -214,12 +248,12 @@ section {
 /* Desktop styles */
 @media (min-width: 1024px) {
   body{
-    background-color: rgb(224, 222, 172);
+    background-color: rgb(231, 231, 224);
     margin: 0;
     line-height: 1;
 }
 /* Header and image styles */
-h1{
+header h1{
     display: flex;
     background-color: rgb(211, 193, 142);
     justify-content: center;
@@ -227,12 +261,12 @@ h1{
     
 }
 
-h1.image{
+header image{
     display: flex;
     width: 50 px;
     justify-items:flex-end ;
 }
-h2 {
+header h2 {
     background-color: rgb(161, 200, 221);
     text-align: center;
   
@@ -240,36 +274,25 @@ h2 {
 
 }
 
+
+
  /* Navigation Base styles */
-nav ul {
-    background-color: rgb(210, 219, 153);
+ 
+ nav ul  {
+    text-align: center;
+    display: flex;
     list-style: none;
-    position: relative;
-}
-
-nav ul li {
-    position: relative;
-}
-
-nav ul ul {
-    display:contents;
+    justify-content: space-around;
     padding:1px;
-    position:left; 
     top: 100%;
+    
 }
 
 
-    ul{
-        text-align: center;
-        display: flex;
-        list-style: none;
-        justify-content: space-around;
-    }
 
     li{
-      display: inline-block;
       width: 160px ;
-      line-height: 2em;
+      line-height: normal;
       font-family:Verdana, Geneva, Tahoma, sans-serif;
       font-variant: small-caps;
       font-size: large;
